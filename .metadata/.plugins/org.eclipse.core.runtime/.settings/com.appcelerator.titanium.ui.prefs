@@ -5,3 +5,5 @@ Test\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.ipad.laun
 eclipse.preferences.version=1
 preference.show.console.onError=true
 preference.studio.perspective.version=103
+videoObjects\:launchMode=run
+videoObjects\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.ipad.launchShortcut.AA1ACC8C-E748-4DA0-A02D-87A6F8558CEE
