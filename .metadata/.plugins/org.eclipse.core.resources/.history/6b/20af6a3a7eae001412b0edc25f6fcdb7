@@ -1,0 +1,16 @@
+Titanium.UI.setBackgroundColor('#000');
+
+var win1, table1, remote;
+
+r = require('Remote');
+
+tabel1 = Ti.UI.createTableView();
+
+win1 = Titanium.UI.createWindow({
+	title: 'Tab 1',
+	backgroundColor: '#fff'
+});
+
+win1.add(table1);
+
+win1.open();
