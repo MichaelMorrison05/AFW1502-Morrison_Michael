@@ -7,6 +7,8 @@ getGeo = function(){
 			api.weather(34.820000, -119.040000);
 		} else {
 	api.weather(e.coords.latitude, e.coords.longitude);
+	var lat = e.coords.latitude;
+	var lon = e.coords.longitude;
 	}
 	});
 };

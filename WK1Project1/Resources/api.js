@@ -1,4 +1,5 @@
 ui = require('UI');
+//geo = require('geoLocation');
 
 weatherApi = function(lat, lon){
 	var xhr = Ti.Network.createHTTPClient({
@@ -17,7 +18,7 @@ weatherApi = function(lat, lon){
 				icon: json.current_observation.icon_url,
 				//icon: 'http://icons.wxug.com/i/c/c/partlycloudy.gif',
 				logo: 'http://icons.wxug.com/logos/PNG/wundergroundLogo_4c.png',
-				webcam: json.CURRENTIMAGEURL
+				webcam: json.current_observation.icon_url.CURRENTIMAGEURL
 			};
 			ui.buildUI(appData);
 			},
