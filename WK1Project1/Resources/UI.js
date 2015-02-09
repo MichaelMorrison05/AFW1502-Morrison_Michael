@@ -1,88 +1,104 @@
+// Create all UI variables
 var mainWindow, mainView, title, icon, logo, weather, temp_f, temp_c, city, time, lastUpdate, lat, lon, state, webcam;
 
+// Main Window Info
 mainWindow = Ti.UI.createWindow({
 	backgroundColor: '#1199ff'
 });
 
-mainView = Ti.UI.createView({
-
+// Main View Info
+mainView = Ti.UI.createScrollView({
+	layout: 'vertical',
 });
 
+// Title Label Info
 title = Ti.UI.createLabel({
 	color: '#fff',
 	text: 'My Weather App',
 	font: {fontSize: 22, fontFamily: 'roboto', fontWeight: 'bold'},
-	top: 50
+	top: 50,
 });
 
+// Icon Image Info
 icon = Ti.UI.createImageView({
-	top: 100
+	top: 20
 });
 
+// City Label Info
+city = Ti.UI.createLabel({
+	color: '#fff',
+	top: 20
+});
+
+// State Label Info
+state = Ti.UI.createLabel({
+	color: '#fff',
+	top: 1
+});
+// Time Label Info
+time = Ti.UI.createLabel({
+	color: '#fff',
+	top: 1
+});
+
+// Weather Label Info
+weather = Ti.UI.createLabel({
+	color: '#fff',
+	top: 1
+});
+
+// Latitude Label Info
+lat = Ti.UI.createLabel({
+	color: '#fff',
+	top: 1
+});
+
+// Longitude Label Info
+lon = Ti.UI.createLabel({
+	color: '#fff',
+	top: 1
+});
+
+// Label Info
+temp_f = Ti.UI.createLabel({
+	color: '#fff',
+	top: 1
+});
+
+// Label Info
+temp_c = Ti.UI.createLabel({
+	color: '#fff',
+	top: 1
+});
+
+// Webcam Image Info
+webcam = Ti.UI.createImageView({
+	top: 50,
+	height: 240,
+	width: 352,
+	color: '#fff'
+});
+
+// Logo Image Info
 logo = Ti.UI.createImageView({
 	height: 156,
 	width: 210,
-	bottom: 75
+	top: 180
 });
 
-weather = Ti.UI.createLabel({
-	color: '#fff',
-	top: 230
-});
-
-temp_f = Ti.UI.createLabel({
-	color: '#fff',
-	top: 290
-});
-
-temp_c = Ti.UI.createLabel({
-	color: '#fff',
-	top: 310
-});
-
-city = Ti.UI.createLabel({
-	color: '#fff',
-	top: 170
-});
-
-time = Ti.UI.createLabel({
-	color: '#fff',
-	top: 210
-});
-
+// Last Updated Label Info
 lastUpdate = Ti.UI.createLabel({
 	color: '#fff',
-	bottom: 50
+	top: 1
 });
 
-lat = Ti.UI.createLabel({
-	color: '#fff',
-	top: 250
-});
-
-lon = Ti.UI.createLabel({
-	color: '#fff',
-	top: 270
-});
-
-state = Ti.UI.createLabel({
-	color: '#fff',
-	top: 190
-});
-
-webcam = Ti.UI.createImageView({
-	top: 400,
-	height: 400,
-	width: 400,
-	color: '#fff',
-	zIndex: 1,
-});
-
-
-
+// Builds UI with Remote Data
 exports.buildUI = function(obj){
+	
+	// Logs obj into a string
 	console.log('obj: ' + JSON.stringify(obj));
 	
+	// Adds remote data to desired location
 	icon.image = obj.icon;
 	logo.image = obj.logo;
 	temp_f.text = 'Fahrenheit: ' + obj.temp_f;
@@ -97,6 +113,24 @@ exports.buildUI = function(obj){
 	webcam.image = obj.webcam;
 };
 
-mainView.add(title, temp_f, icon, weather, city, time, lat, lon, state, lastUpdate, webcam, logo, temp_c);
+// Adds UI components to my main view
+// Added separately for compatibility with Android devices.
+mainView.add(title);
+mainView.add(icon);
+mainView.add(city);
+mainView.add(state);
+mainView.add(time);
+mainView.add(weather);
+mainView.add(lat);
+mainView.add(lon);
+mainView.add(temp_f);
+mainView.add(temp_c);
+mainView.add(webcam);
+mainView.add(logo);
+mainView.add(lastUpdate);
+
+// Adds my main view to the main window
 mainWindow.add(mainView);
+
+// Opens my main window
 mainWindow.open();
