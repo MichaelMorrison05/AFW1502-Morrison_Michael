@@ -1,0 +1,9 @@
+Titanium.UI.setBackgroundColor('#1199ff');
+
+var url = "http://api.wunderground.com/api/d8d6d376722c1591/geolookup/q/CA/San_Francisco.json";
+var mainWindow, appTitleText;
+var loadGeolookup = require('geolookup');
+var loadConditions = require('conditions');
+var loadUI = require('UI);
+
+

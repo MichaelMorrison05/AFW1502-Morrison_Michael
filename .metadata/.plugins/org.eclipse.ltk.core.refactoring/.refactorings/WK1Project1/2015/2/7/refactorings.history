@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;WK1Project1/Resources/loc.js&apos; to &apos;geoLocation.js&apos;" description="Rename resource &apos;loc.js&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Resources/loc.js" name="geoLocation.js" stamp="1423436785673" updateReferences="true"/>
+</session>

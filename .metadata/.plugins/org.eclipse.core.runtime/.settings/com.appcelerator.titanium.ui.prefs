@@ -1,11 +1,11 @@
 =run
-LAST_LAUNCH_TIMESTAMP=1423333020318
+LAST_LAUNCH_TIMESTAMP=1423443589653
 RemoteData\:launchMode=run
 RemoteData\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.ipad.launchShortcut.AA1ACC8C-E748-4DA0-A02D-87A6F8558CEE
 Test\:launchMode=run
 Test\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.ipad.launchShortcut.AA1ACC8C-E748-4DA0-A02D-87A6F8558CEE
 WK1Project1\:launchMode=run
-WK1Project1\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.86EA37AF-C048-4069-AAAB-F57E64469967
+WK1Project1\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.ipad.launchShortcut.AA1ACC8C-E748-4DA0-A02D-87A6F8558CEE
 Week1Video\:launchMode=run
 Week1Video\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.39A48460-C33A-4044-B0D4-8C0239E3F4E4
 commonJsModularization\:launchMode=run

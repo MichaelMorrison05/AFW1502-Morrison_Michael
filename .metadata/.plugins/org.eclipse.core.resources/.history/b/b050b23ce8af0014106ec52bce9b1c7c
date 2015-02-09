@@ -1,0 +1,11 @@
+Titanium.UI.setBackgroundColor('#1199ff');
+
+var geo = require('geoLocation');
+
+if (Ti.Network.online){
+	alert('Online');
+	geo.getGeo();
+} else {
+	alert('Offline');
+};
+

@@ -1,0 +1,35 @@
+Titanium.UI.setBackgroundColor('#1199ff');
+
+var url = "http://api.wunderground.com/api/d8d6d376722c1591/geolookup/q/CA/San_Francisco.json";
+var mainWindow, appTitleText;
+var loadGeolookup = require('geolookup');
+var loadConditions = require('conditions');
+var loadGeo = require('geo');
+
+// Application Title
+var appTitleText = Ti.UI.createLabel({
+	color: "#fff",
+	top: 60,
+	font: {fontSize: 32, fontFamily: "Roboto", fontWeight: "bold"},
+	textAlign: "center",
+	text: "My Weather App"
+	
+});
+
+var stateLable = Ti.UI.createLabel({
+	color: "#fff",
+	top: 100,
+	font: {fontSize: 22, fontFamily: "Roboto", fontWeight: "bold"},
+	textAlign: "center",
+	text: loadGeo.lg
+	
+});
+
+
+
+mainWindow = Titanium.UI.createWindow({
+	backgroundColor: '#1199ff'
+});
+
+mainWindow.add(appTitleText, stateLable);
+mainWindow.open();

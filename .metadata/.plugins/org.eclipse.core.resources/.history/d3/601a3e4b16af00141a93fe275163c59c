@@ -1,0 +1,9 @@
+var latitude, longitude;
+Ti.Geolocation.getCurrentPosition(function(e){
+latitude = e.coords.latitude;
+longitude = e.coords.longitude;
+console.log("e.lat/long" + e.coords.latitude+"/"+e.coords.longitude);
+console.log("lat: " + latitude + "long: " + longitude);
+});
+
+console.log("Outer: " + latitude + " Long: " + longitude);
