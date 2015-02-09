@@ -2,7 +2,11 @@
 <launchConfiguration type="com.appcelerator.titanium.mobile.ui.android.simulator.launchConfigurationType">
 <stringAttribute key="ATTR_PROJECT_NAME" value="WK1Project1"/>
 <stringAttribute key="abi" value="x86_64"/>
-<stringAttribute key="device-id" value="Nexus_7"/>
+<stringAttribute key="device-id" value="AVD_for_10_1_WXGA_Tablet"/>
+<stringAttribute key="key_password" value=""/>
+<stringAttribute key="keystore_alias" value=""/>
+<stringAttribute key="keystore_password" value=""/>
+<stringAttribute key="keystore_path" value=""/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/WK1Project1"/>
 </listAttribute>

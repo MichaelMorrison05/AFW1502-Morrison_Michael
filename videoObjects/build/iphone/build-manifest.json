@@ -1,8 +1,9 @@
 {
-	"target": "simulator",
-	"deployType": "development",
+	"target": "device",
+	"deployType": "test",
 	"iosSdkVersion": "8.1",
 	"deviceFamily": "universal",
+	"developerName": "Jennifer McCarrick (VET4496F2Z)",
 	"iosSdkPath": "/Users/Michael/Library/Application Support/Titanium/mobilesdk/osx/3.5.0.GA/iphone",
 	"tiCoreHash": "47658db9e85e6b4af144b3d6070d6de0",
 	"modulesHash": "d41d8cd98f00b204e9800998ecf8427e",
@@ -14,11 +15,11 @@
 	"publisher": "Michael",
 	"url": "http://",
 	"version": "1.0",
-	"description": "",
+	"description": "undefined",
 	"copyright": "2015 by Michael",
 	"guid": "78d69361-6a29-4c90-85b0-b8d541f0c8c6",
-	"skipJSMinification": true,
+	"skipJSMinification": false,
 	"forceCopy": false,
 	"forceCopyAll": false,
-	"encryptJS": false
+	"encryptJS": true
 }

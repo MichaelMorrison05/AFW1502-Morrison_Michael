@@ -7,13 +7,13 @@
 #define _QUOTEME(x) #x
 #define STRING(x) _QUOTEME(x)
 
-NSString * const TI_APPLICATION_DEPLOYTYPE = @"development";
+NSString * const TI_APPLICATION_DEPLOYTYPE = @"test";
 NSString * const TI_APPLICATION_ID = @"videoObjects.com";
 NSString * const TI_APPLICATION_PUBLISHER = @"Michael";
 NSString * const TI_APPLICATION_URL = @"http://";
 NSString * const TI_APPLICATION_NAME = @"videoObjects";
 NSString * const TI_APPLICATION_VERSION = @"1.0";
-NSString * const TI_APPLICATION_DESCRIPTION = @"";
+NSString * const TI_APPLICATION_DESCRIPTION = @"undefined";
 NSString * const TI_APPLICATION_COPYRIGHT = @"2015 by Michael";
 NSString * const TI_APPLICATION_GUID = @"78d69361-6a29-4c90-85b0-b8d541f0c8c6";
 BOOL const TI_APPLICATION_ANALYTICS = true;
