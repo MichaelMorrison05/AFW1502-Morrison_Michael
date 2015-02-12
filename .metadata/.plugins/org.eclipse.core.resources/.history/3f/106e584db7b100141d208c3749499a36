@@ -1,0 +1,53 @@
+// Gets data from the UI.js file
+ui = require('UI');
+
+//Set Data
+//Ti.App.Properties.setString(Key, value);
+//Ti.App.Properties.setString('userData', JSON.Stringify(obj));
+
+//Retrieve Data
+//Ti.App.Properties.getString(Key);
+//var User = JSON.parse(Ti.App.Properties.getString('userData'));
+
+
+// collects data from wunderground.com
+weatherApi = function(lat, lon){
+	var xhr = Ti.Network.createHTTPClient({
+		onload: function(){
+			var json = JSON.parse(this.responseText);
+			var appData = {
+				icon: json.current_observation.icon_url,
+				city: json.current_observation.display_location.city,
+				state: json.location.state,
+				time: json.current_observation.local_time_rfc822,
+				weather: json.current_observation.weather,
+				lat: json.current_observation.display_location.latitude,
+				lon: json.current_observation.display_location.longitude,
+				temp_f: json.current_observation.temp_f,
+				temp_c: json.current_observation.temp_c,
+				webcam: json.webcams[7].CURRENTIMAGEURL,
+				logo: 'http://icons.wxug.com/logos/PNG/wundergroundLogo_4c.png',
+				lastUpdate: json.current_observation.observation_time
+				
+			};
+			ui.buildUI(appData);
+			},
+			
+			// On an error a alert will appear
+			onerror: function(){
+				alert('Error');
+			}
+	
+	});
+	
+	// Stops attemps after 5sec
+	xhr.timeout = 5000;
+	// wunderground API url for geolookup, conditions, forcast, webcams, and astronomy.
+	// My lat and lon has been included so the right data is pulled
+	var url = 'http://api.wunderground.com/api/d8d6d376722c1591/geolookup/conditions/forcast/webcams/astronomy/q/' +lat+ ',' +lon+ '.json';
+	xhr.open('GET', url);
+	xhr.send();
+};
+
+// Exports weatherAPI data so that it can be used throughout the code
+exports.weather = weatherApi;

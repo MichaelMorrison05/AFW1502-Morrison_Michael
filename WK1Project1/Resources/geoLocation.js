@@ -1,8 +1,9 @@
 // Pulls data from api.js
 var api = require('api');
 
+
 // Function that grabs geolocation data
-getGeo = function(){
+var getGeo = function(){
 		
 		// Hard codes location for Android devices 
 		if (Ti.Platform.osname === 'android'){
@@ -17,6 +18,7 @@ getGeo = function(){
 };
 
 // Exports data so that it can be used throughout the code
+// Creates a new property called getGeo that calls the getGeo function
 exports.getGeo = getGeo;
 
 

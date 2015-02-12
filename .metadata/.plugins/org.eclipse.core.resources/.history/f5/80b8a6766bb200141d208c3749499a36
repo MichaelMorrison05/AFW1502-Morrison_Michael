@@ -1,0 +1,44 @@
+
+//var db = Titanium.Database.open('weatherDatabase');
+//db.execute('CREATE TABLE IF NOT EXISTS weatherDatabase (id INTEGER PRIMARY KEY, columnname DATATYPE, columnname2 DATATYPE)');
+
+// SQLite Datatypes:
+// TEXT, INT, REAL, BLOB
+
+// Boolean = INT value 0 or 1
+// Timestamp = Text
+
+// Parameterization - Prevents malicious code
+// db.execute('INSERT INTO tablename (c1,c2) VALUES (?,?)', 'value', 1);
+
+// Updating Rows
+
+/*
+UPDATE tablename
+
+SET column1=value1,column2=value2,...
+
+WHERE id=id
+*/
+
+// db.execute('UPDATE tablename SET c1=?,c2=? WHERE id=?','value1','value2');
+
+// Delete from database
+// db.execute('DELETE FROM tablename WHERE id=?',1);
+
+// Read table
+// db.execute('SELECT * FROM tablename');
+// db.execute('SELECT * FROM user');
+
+
+
+
+
+
+
+
+
+
+
+
+

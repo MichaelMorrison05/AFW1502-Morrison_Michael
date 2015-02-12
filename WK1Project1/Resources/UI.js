@@ -1,95 +1,220 @@
-// Create all UI variables
-var mainWindow, mainView, title, icon, logo, weather, temp_f, temp_c, city, time, lastUpdate, lat, lon, state, webcam;
-
 // Main Window Info
-mainWindow = Ti.UI.createWindow({
-	backgroundColor: '#1199ff'
+var mainWindow = Ti.UI.createWindow({
+	backgroundColor: '#0695ff'
 });
 
 // Main View Info
-mainView = Ti.UI.createScrollView({
-	layout: 'vertical',
+var mainView = Ti.UI.createScrollView({
+	width: Titanium.UI.FILL, 
+	height: Titanium.UI.FILL,
+	layout: 'vertical'
 });
 
 // Title Label Info
-title = Ti.UI.createLabel({
+var title = Ti.UI.createLabel({
 	color: '#fff',
+	font: { fontSize:28, fontWeight: 'bold' },
 	text: 'My Weather App',
-	font: {fontSize: 22, fontFamily: 'roboto', fontWeight: 'bold'},
-	top: 50,
+	top: 20
+});
+
+// Date Label Info
+var date = Ti.UI.createLabel({
+	color: '#fff',
+	top: 20,
+});
+
+// Time Label Info
+var time = Ti.UI.createLabel({
+	color: '#fff',
+	top: 1,
 });
 
 // Icon Image Info
-icon = Ti.UI.createImageView({
-	top: 20
+var icon = Ti.UI.createImageView({
+	top: 10,
+	imageAlign: Ti.UI.IMAGE_ALIGNMENT_CENTER
 });
 
 // City Label Info
-city = Ti.UI.createLabel({
+var city = Ti.UI.createLabel({
 	color: '#fff',
-	top: 20
+	top: 10,
 });
 
 // State Label Info
-state = Ti.UI.createLabel({
+var state = Ti.UI.createLabel({
 	color: '#fff',
-	top: 1
-});
-// Time Label Info
-time = Ti.UI.createLabel({
-	color: '#fff',
-	top: 1
+	top: 1,
 });
 
 // Weather Label Info
-weather = Ti.UI.createLabel({
+var weather = Ti.UI.createLabel({
 	color: '#fff',
-	top: 1
+	top: 1,
 });
 
 // Latitude Label Info
-lat = Ti.UI.createLabel({
+var lat = Ti.UI.createLabel({
 	color: '#fff',
-	top: 1
+	top: 1,
 });
 
 // Longitude Label Info
-lon = Ti.UI.createLabel({
+var lon = Ti.UI.createLabel({
 	color: '#fff',
-	top: 1
+	top: 1,
 });
 
 // Label Info
-temp_f = Ti.UI.createLabel({
+var temp_f = Ti.UI.createLabel({
 	color: '#fff',
-	top: 1
+	top: 1,
 });
 
 // Label Info
-temp_c = Ti.UI.createLabel({
+var temp_c = Ti.UI.createLabel({
 	color: '#fff',
-	top: 1
+	top: 1,
+	//textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
 });
 
 // Webcam Image Info
-webcam = Ti.UI.createImageView({
-	top: 50,
+var webcam = Ti.UI.createImageView({
+	top: 10,
 	height: 240,
 	width: 352,
-	color: '#fff'
+	//width: Ti.UI.SIZE, 
+	//height: Ti.UI.SIZE,
+	color: '#fff',
+});
+
+var dayView = Ti.UI.createView({
+	width: Titanium.UI.SIZE, 
+	height: Titanium.UI.SIZE,
+	top: 10,
+	layout: 'Horizontal'
+});
+
+var day1 = Ti.UI.createLabel({
+	font: { fontSize:22, fontWeight: 'bold' },
+	color: '#fff',
+	right: 200
+});
+
+var day2 = Ti.UI.createLabel({
+	font: { fontSize:22, fontWeight: 'bold' },
+	color: '#fff',
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+});
+
+var day3 = Ti.UI.createLabel({
+	font: { fontSize:22, fontWeight: 'bold' },
+	color: '#fff',
+	left: 200
+});
+
+var dayIconView = Ti.UI.createView({
+	width: Titanium.UI.SIZE, 
+	height: Titanium.UI.SIZE,
+	color: '#fafafa',
+	top: 1,
+	layout: 'Horizontal'
+});
+
+var dayIcon1 = Ti.UI.createImageView({
+	right: 231
+});
+
+var dayIcon2 = Ti.UI.createImageView({
+	imageAlign: Ti.UI.IMAGE_ALIGNMENT_CENTER
+});
+
+var dayIcon3 = Ti.UI.createImageView({
+	left: 231
+});
+
+var dayHigh = Ti.UI.createView({
+	width: Titanium.UI.SIZE, 
+	height: Titanium.UI.SIZE,
+	color: '#fafafa',
+	top: 1,
+	layout: 'Horizontal'
+});
+
+var day1High = Ti.UI.createLabel({
+	font: { fontSize:18, fontWeight: 'bold' },
+	color: '#fff',
+	right: 236
+});
+
+var day2High = Ti.UI.createLabel({
+	font: { fontSize:18, fontWeight: 'bold' },
+	color: '#fff',
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+});
+
+var day3High = Ti.UI.createLabel({
+	font: { fontSize:18, fontWeight: 'bold' },
+	color: '#fff',
+	left: 236
+});
+
+var dayLow = Ti.UI.createView({
+	width: Titanium.UI.SIZE, 
+	height: Titanium.UI.SIZE,
+	color: '#fafafa',
+	top: 1,
+	layout: 'Horizontal'
+});
+
+var day1Low = Ti.UI.createLabel({
+	font: { fontSize:18, fontWeight: 'bold' },
+	color: '#fff',
+	right: 232
+});
+
+var day2Low = Ti.UI.createLabel({
+	font: { fontSize:18, fontWeight: 'bold' },
+	color: '#fff',
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+});
+
+var day3Low = Ti.UI.createLabel({
+	font: { fontSize:18, fontWeight: 'bold' },
+	color: '#fff',
+	left: 232
 });
 
 // Logo Image Info
-logo = Ti.UI.createImageView({
+var logo = Ti.UI.createImageView({
 	height: 156,
 	width: 210,
-	top: 180
+	top: 100,
 });
 
 // Last Updated Label Info
-lastUpdate = Ti.UI.createLabel({
+var lastUpdate = Ti.UI.createLabel({
 	color: '#fff',
-	top: 1
+	top: 1,
+});
+
+var refreshButton = Titanium.UI.createButton({
+	title: 'Refresh',
+	color: '#fff',
+	backgroundColor: '#5fb9fc',
+	bottom: 10,
+	right: 25,
+	borderWidth: 2,
+	borderRadius: 5,
+	borderColor: '#0f6cb1',
+	width: 75,
+	height: 30
+});
+
+refreshButton.addEventListener('click',function(e)
+{
+   alert('refreshed');
 });
 
 // Builds UI with Remote Data
@@ -99,38 +224,91 @@ exports.buildUI = function(obj){
 	console.log('obj: ' + JSON.stringify(obj));
 	
 	// Adds remote data to desired location
+	
+	var newDate = obj.date;
+	date.text = newDate.substr(0, 17);
+	var newTime = obj.time;
+	time.text = newTime.substr(28, 50);
+	
 	icon.image = obj.icon;
-	logo.image = obj.logo;
-	temp_f.text = 'Fahrenheit: ' + obj.temp_f;
-	temp_c.text = 'Celsius: ' + obj.temp_c;
-	weather.text = 'Current weather: ' + obj.weather;
+	
 	city.text = 'City: ' + obj.city;
-	time.text = obj.time;
-	lastUpdate.text = obj.lastUpdate;
+	state.text = 'State: ' + obj.state;
+	weather.text = 'Current weather: ' + obj.weather;
 	lat.text = 'Latitude: ' + obj.lat;
 	lon.text = 'Longitude: ' + obj.lon;
-	state.text = 'State: ' + obj.state;
+	temp_f.text = 'Fahrenheit: ' + obj.temp_f;
+	temp_c.text = 'Celsius: ' + obj.temp_c;
+	
+	day1.text = obj.day1;
+	day2.text = obj.day2;
+	day3.text = obj.day3;
+	
+	dayIcon1.image = obj.day1Icon;
+	dayIcon2.image = obj.day2Icon;
+	dayIcon3.image = obj.day3Icon;
+	
+	day1High.text = obj.day1High;
+	day2High.text = obj.day2High;
+	day3High.text = obj.day3High;
+	
+	day1Low.text = obj.day1Low;
+	day2Low.text = obj.day2Low;
+	day3Low.text = obj.day3Low;
+	
 	webcam.image = obj.webcam;
+	logo.image = obj.logo;
+	lastUpdate.text = obj.lastUpdate;
 };
+
 
 // Adds UI components to my main view
 // Added separately for compatibility with Android devices.
 mainView.add(title);
+
+mainView.add(date);
+mainView.add(time);
+
 mainView.add(icon);
+
 mainView.add(city);
 mainView.add(state);
-mainView.add(time);
 mainView.add(weather);
 mainView.add(lat);
 mainView.add(lon);
 mainView.add(temp_f);
 mainView.add(temp_c);
 mainView.add(webcam);
+
+mainView.add(dayView);
+mainView.add(dayIconView);
+
+mainView.add(dayHigh);
+mainView.add(dayLow);
+
 mainView.add(logo);
 mainView.add(lastUpdate);
+//mainView.add(refreshButton);
+
+dayView.add(day1);
+dayView.add(day2);
+dayView.add(day3);
+
+dayIconView.add(dayIcon1);
+dayIconView.add(dayIcon2);
+dayIconView.add(dayIcon3);
+
+dayHigh.add(day1High);
+dayHigh.add(day2High);
+dayHigh.add(day3High);
+
+dayLow.add(day1Low);
+dayLow.add(day2Low);
+dayLow.add(day3Low);
 
 // Adds my main view to the main window
 mainWindow.add(mainView);
+mainWindow.add(refreshButton);
 
 // Opens my main window
 mainWindow.open();

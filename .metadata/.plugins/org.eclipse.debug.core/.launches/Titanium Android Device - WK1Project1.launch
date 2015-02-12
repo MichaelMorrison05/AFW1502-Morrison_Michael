@@ -3,6 +3,7 @@
 <booleanAttribute key="ATTR_MINIFY" value="true"/>
 <stringAttribute key="ATTR_PROJECT_NAME" value="WK1Project1"/>
 <stringAttribute key="abi" value="x86_64"/>
+<stringAttribute key="device-id" value="emulator-5554"/>
 <stringAttribute key="key_password" value=""/>
 <stringAttribute key="keystore_alias" value=""/>
 <stringAttribute key="keystore_password" value=""/>
