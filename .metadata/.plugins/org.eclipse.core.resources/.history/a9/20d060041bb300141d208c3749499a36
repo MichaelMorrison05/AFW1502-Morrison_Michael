@@ -1,0 +1,43 @@
+var ui = require('UI');
+
+
+var db = Ti.Database.open('weatherDatabase');
+db.execute('CREATE TABLE IF NOT EXISTS weatherInfo (id INTEGER PRIMARY KEY, date TEXT, time TEXT, city TEXT, state TEXT, weather TEXT, lat TEXT, lon TEXT, temp_f TEXT, temp_c TEXT, day1 TEXT, day2 TEXT, day3 TEXT, day1High TEXT, day2High TEXT, day3High TEXT, day1Low TEXT, day2Low TEXT, day3Low TEXT, lastUpdate TEXT)');
+
+// Parameterization - Prevents malicious code
+
+db.execute('INSERT INTO weatherInfo (date, time, city, state, weather, lat, lon, temp_f, temp_c, day1, day2, day3, day1High, day2High, day3High, day1Low, day2Low, day3Low, lastUpdate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', date.text, time.text, city.text, state.text, weather.text, lat.text, lon.text, temp_f.text, temp_c.text, day1.text, day2.text, day3.text, day1High.text, day2High.text, day3High.text, day1Low.text, day2Low.text, day3Low.text, lastUpdate.text);
+
+db.execute('SELECT * FROM weatherInfo');
+console.log(db);
+// Updating Rows
+
+/*
+UPDATE tablename
+
+SET column1=value1,column2=value2,...
+
+WHERE id=id
+*/
+
+// db.execute('UPDATE tablename SET c1=?,c2=? WHERE id=?','value1','value2');
+
+// Delete from database
+// db.execute('DELETE FROM tablename WHERE id=?',1);
+
+// Read table
+// db.execute('SELECT * FROM tablename');
+// db.execute('SELECT * FROM user');
+
+
+
+
+
+
+
+
+
+
+
+
+

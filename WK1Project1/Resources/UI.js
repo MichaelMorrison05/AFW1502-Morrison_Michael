@@ -76,7 +76,6 @@ var temp_f = Ti.UI.createLabel({
 var temp_c = Ti.UI.createLabel({
 	color: '#fff',
 	top: 1,
-	//textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
 });
 
 // Webcam Image Info
@@ -84,8 +83,6 @@ var webcam = Ti.UI.createImageView({
 	top: 10,
 	height: 240,
 	width: 352,
-	//width: Ti.UI.SIZE, 
-	//height: Ti.UI.SIZE,
 	color: '#fff',
 });
 

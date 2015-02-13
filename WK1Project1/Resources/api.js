@@ -1,15 +1,6 @@
 // Gets data from the UI.js file
 var ui = require('UI');
 
-//Set Data
-//Ti.App.Properties.setString(Key, value);
-//Ti.App.Properties.setString('userData', JSON.Stringify(obj));
-
-//Retrieve Data
-//Ti.App.Properties.getString(Key);
-//var User = JSON.parse(Ti.App.Properties.getString('userData'));
-
-
 // collects data from wunderground.com
 var weatherInfo = function(lat, lon){
 	var xhr = Ti.Network.createHTTPClient({
@@ -48,6 +39,7 @@ var weatherInfo = function(lat, lon){
 				
 			};
 			ui.buildUI(appData);
+			//Database.save(appData);
 			},
 			
 			// On an error a alert will appear
