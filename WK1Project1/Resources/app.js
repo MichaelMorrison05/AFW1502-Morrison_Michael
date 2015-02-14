@@ -8,11 +8,10 @@ var geo = require('geoLocation');
 if (Ti.Network.online){
 	alert('Online :)');
 	geo.getGeo();
-	//var api = require('api');
-	//api.getData();
 	
 } else {
-	alert('Offline :()');
-	
+	alert('Offline :(');
+	var read = require('Database');
+	read.read();
 };
 

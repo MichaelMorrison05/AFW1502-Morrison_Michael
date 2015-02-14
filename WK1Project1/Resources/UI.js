@@ -209,10 +209,7 @@ var refreshButton = Titanium.UI.createButton({
 	height: 30
 });
 
-refreshButton.addEventListener('click',function(e)
-{
-   alert('refreshed');
-});
+
 
 // Builds UI with Remote Data
 exports.buildUI = function(obj){
@@ -306,6 +303,16 @@ dayLow.add(day3Low);
 // Adds my main view to the main window
 mainWindow.add(mainView);
 mainWindow.add(refreshButton);
+
+refreshButton.addEventListener('click',function(e)
+{
+   if (Ti.Network.online){
+	alert('Online :)');
+
+} else {
+	alert('Offline :(');
+};
+});
 
 // Opens my main window
 mainWindow.open();
