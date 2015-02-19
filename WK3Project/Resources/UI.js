@@ -39,9 +39,9 @@ var mainView = Ti.UI.createScrollView({
 	left: 0,
 	width: '75%',
 	//width: Titanium.UI.FILL,
-	height: Titanium.UI.SIZE,
+	height: 2000,
 	top: banner.height + banner.top,
-	backgroundColor: '#343434',
+	//backgroundColor: '#343434',
 	layout: 'vertical'
 });
 

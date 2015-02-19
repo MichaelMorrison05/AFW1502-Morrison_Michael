@@ -45,7 +45,7 @@ var read = function() {
 	};
 	dbRows.close();
 	db.close();
-	ui.buildUI(dbPost);
+	ui.buildUI(dbData);
 };
 
 

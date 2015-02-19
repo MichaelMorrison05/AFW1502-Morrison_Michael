@@ -28,7 +28,7 @@ var inTheatersInfo = function(){
 				postArray.push(appData);
 			}
 			//ui.buildUI(appData);
-			Database.save(appData);
+			Database.save(postArray);
 			//Database.saveToCloud(appData);
 			},
 			
