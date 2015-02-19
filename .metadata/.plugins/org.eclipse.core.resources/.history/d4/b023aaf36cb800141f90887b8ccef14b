@@ -26,7 +26,6 @@ var save = function(apiInfo){
 var read = function() {
 	var db = Ti.Database.open('inTheatersDatabase');
 	var dbRows = db.execute('SELECT * FROM inTheatersInfo');
-	var dbData = [];
 	while (dbRows.isValidRow()) {
 	var dbPost = {
 		movieName : dbRows.fieldByName('movieName'),
@@ -40,7 +39,6 @@ var read = function() {
 		runtime : dbRows.fieldByName('runtime'),
 		synopsis : dbRows.fieldByName('synopsis')
 	};
-		dbData.push(dbPost);
 		dbRows.next();
 	};
 	dbRows.close();

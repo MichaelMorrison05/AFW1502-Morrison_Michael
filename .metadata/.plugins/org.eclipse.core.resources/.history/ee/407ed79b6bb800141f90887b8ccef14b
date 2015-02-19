@@ -10,6 +10,8 @@ var save = function(apiInfo){
 
 	db.execute('DELETE FROM inTheatersInfo');
 	
+	var api = require('api');
+	
 	// need for loop here
 	for (i=0, j=apiInfo.length; i<j; i++) {
 	db.execute('INSERT INTO inTheatersInfo (movieName, criticsRating, criticsScore, audienceRating, audienceScore, poster, year, mpaa_rating, runtime, synopsis) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', apiInfo[i].movieName, apiInfo[i].criticsRating, apiInfo[i].criticsScore, apiInfo[i].audienceRating, apiInfo[i].audienceScore, apiInfo[i].poster, apiInfo[i].year, apiInfo[i].mpaa_rating, apiInfo[i].runtime, apiInfo[i].synopsis);
@@ -26,7 +28,6 @@ var save = function(apiInfo){
 var read = function() {
 	var db = Ti.Database.open('inTheatersDatabase');
 	var dbRows = db.execute('SELECT * FROM inTheatersInfo');
-	var dbData = [];
 	while (dbRows.isValidRow()) {
 	var dbPost = {
 		movieName : dbRows.fieldByName('movieName'),
@@ -40,7 +41,6 @@ var read = function() {
 		runtime : dbRows.fieldByName('runtime'),
 		synopsis : dbRows.fieldByName('synopsis')
 	};
-		dbData.push(dbPost);
 		dbRows.next();
 	};
 	dbRows.close();

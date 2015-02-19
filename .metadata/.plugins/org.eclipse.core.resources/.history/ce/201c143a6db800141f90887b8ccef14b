@@ -139,16 +139,16 @@ exports.buildUI = function(obj){
 	
 	for (i=0, j=obj.length; i<j; i++) {
 
-	movieName.text = obj[i].movieName;
-	criticsRating.text = 'Critics Rating: ' + obj[i].criticsRating;
-	criticsScore.text = 'Critics Score: ' + obj[i].criticsScore;
-	audienceRating.text = 'Audience Rating: ' + obj[i].audienceRating;
-	audienceScore.text = 'Audience Score: ' + obj[i].audienceScore;
-	poster.image = obj[i].poster;
-	year.text = 'Year: ' + obj[i].year;
-	mpaa_rating.text = 'MPAA Rating: ' + obj[i].mpaa_rating;
-	runtime.text = 'Runtime: ' + obj[i].runtime + ' min';
-	synopsis.text = 'Synopsis: ' + obj[i].synopsis;
+	movieName.text = obj.movieName;
+	criticsRating.text = 'Critics Rating: ' + obj.criticsRating;
+	criticsScore.text = 'Critics Score: ' + obj.criticsScore;
+	audienceRating.text = 'Audience Rating: ' + obj.audienceRating;
+	audienceScore.text = 'Audience Score: ' + obj.audienceScore;
+	poster.image = obj.poster;
+	year.text = 'Year: ' + obj.year;
+	mpaa_rating.text = 'MPAA Rating: ' + obj.mpaa_rating;
+	runtime.text = 'Runtime: ' + obj.runtime + ' min';
+	synopsis.text = 'Synopsis: ' + obj.synopsis;
 	
 	}
 };
