@@ -1,11 +1,15 @@
 =run
-LAST_LAUNCH_TIMESTAMP=1423443589653
+LAST_LAUNCH_TIMESTAMP=1424302474525
 RemoteData\:launchMode=run
 RemoteData\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.ipad.launchShortcut.AA1ACC8C-E748-4DA0-A02D-87A6F8558CEE
 Test\:launchMode=run
 Test\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.ipad.launchShortcut.AA1ACC8C-E748-4DA0-A02D-87A6F8558CEE
 WK1Project1\:launchMode=run
-WK1Project1\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.ipad.launchShortcut.1F9CE3DD-C6C1-4A12-964E-A0C94416B096
+WK1Project1\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.ipad.launchShortcut.AA1ACC8C-E748-4DA0-A02D-87A6F8558CEE
+WK2Project\:launchMode=run
+WK2Project\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.ipad.launchShortcut.AA1ACC8C-E748-4DA0-A02D-87A6F8558CEE
+WK3Project\:launchMode=run
+WK3Project\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.ipad.launchShortcut.AA1ACC8C-E748-4DA0-A02D-87A6F8558CEE
 Week1Video\:launchMode=run
 Week1Video\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.39A48460-C33A-4044-B0D4-8C0239E3F4E4
 commonJsModularization\:launchMode=run

@@ -2,4 +2,8 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="303" key="DIALOG_Y_ORIGIN"/>
+		<item value="383" key="DIALOG_X_ORIGIN"/>
+	</section>
 </section>

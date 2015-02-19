@@ -1,0 +1,31 @@
+var Database = require('Database');
+
+// collects data
+var inTheatersInfo = function(){
+	var xhr = Ti.Network.createHTTPClient({
+		onload: function(){
+			var json = JSON.parse(this.responseText);
+			var appData = {
+				
+				movieName: movies[1].title
+		
+			};
+			//ui.buildUI(appData);
+			Database.save(appData);
+			},
+			
+			// On an error a alert will appear
+			onerror: function(){
+				alert('Error');
+			}
+	
+	});
+	
+	// Stops attemps after 5sec
+	xhr.timeout = 5000;
+	var url = 'http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=kr85dzry7wrc5dnhafu2xqdh';
+	xhr.open('GET', url);
+	xhr.send();
+};
+
+exports.inTheaters = inTheatersInfo;

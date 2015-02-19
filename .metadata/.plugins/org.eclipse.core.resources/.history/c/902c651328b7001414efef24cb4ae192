@@ -1,0 +1,61 @@
+var ui = require('UI');
+
+// load the Cloud Module
+var Cloud = require('ti.cloud');
+
+// set .debug property to 'true' as we are in Development mode
+Cloud.debug = true;
+var loginUser = function(){
+	Cloud.Users.login({
+		login: 'com.WK3Project',
+		password: 'Darksith1'
+	}, function(e){
+		// use .info method to view login info in the Console, if successful
+		console.log(e);
+		if (e.success){
+			var user = e.users[0];
+			Ti.API.info('Success!\n' + 
+				'ACS User ID: ' + user.id + '\n' + 
+				'ACS App sessionId: ' + Cloud.sessionId + '\n' + 
+				'ACS App Username: ' + user.username);
+		} else {
+			alert((e.error && e.message) || JSON.stringify(e));
+		}
+	});
+}; // loginUser ends
+
+if (Ti.Network.online) {
+	loginUser();
+	// now your app is ready to access ACS network and data services
+} else {
+	alert("No Network!");
+}
+
+
+
+
+var mainWindow = Ti.UI.createWindow({
+	backgroundColor: '#000'
+});
+
+// Main View Info
+var mainView = Ti.UI.createScrollView({
+	width: Titanium.UI.FILL, 
+	height: Titanium.UI.FILL,
+	layout: 'vertical'
+});
+
+var banner = Ti.UI.createImageView({
+	width: Titanium.UI.FILL, 
+	height: 100,
+	top: 0,
+	layout: 'Horizontal',
+	backgroundColor: '#3a9425'
+});
+
+// Adds my main view to the main window
+mainView.add(banner);
+mainWindow.add(mainView);
+
+// Opens my main window
+mainWindow.open();

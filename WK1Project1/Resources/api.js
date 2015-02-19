@@ -1,5 +1,6 @@
 // Gets data from the UI.js file
 var Database = require('Database');
+//var ui = require('UI');
 
 // collects data from wunderground.com
 var weatherInfo = function(lat, lon){
@@ -23,9 +24,9 @@ var weatherInfo = function(lat, lon){
 				day2: json.forecast.txt_forecast.forecastday[4].title,
 				day3: json.forecast.txt_forecast.forecastday[6].title,
 				
-				day1Icon: json.forecast.txt_forecast.forecastday[2].icon_url,
-				day2Icon: json.forecast.txt_forecast.forecastday[4].icon_url,
-				day3Icon: json.forecast.txt_forecast.forecastday[6].icon_url,
+				dayIcon1: json.forecast.txt_forecast.forecastday[2].icon_url,
+				dayIcon2: json.forecast.txt_forecast.forecastday[4].icon_url,
+				dayIcon3: json.forecast.txt_forecast.forecastday[6].icon_url,
 				
 				day1High: 'Hi ' + json.forecast.simpleforecast.forecastday[1].high.fahrenheit,
 				day1Low: 'Lo ' + json.forecast.simpleforecast.forecastday[1].low.fahrenheit,

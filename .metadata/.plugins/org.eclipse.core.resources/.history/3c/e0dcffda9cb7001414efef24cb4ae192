@@ -1,0 +1,48 @@
+var ui = require('UI');
+
+var save = function(apiInfo){
+
+	var db = Ti.Database.open('inTheatersInfo');
+	
+	db.execute('DROP TABLE IF EXISTS inTheatersInfo');
+
+	db.execute('CREATE TABLE IF NOT EXISTS inTheatersInfo (id INTEGER PRIMARY KEY, movieName TEXT, critics_rating TEXT)');
+
+	db.execute('DELETE FROM inTheatersInfo');
+
+	db.execute('INSERT INTO inTheatersInfo (movieName, critics_rating) VALUES (?, ?)', apiInfo.movieName, apiInfo.critics_rating);
+
+	read();
+
+	db.close();
+	
+// criticsRating, criticsScore, audienceRating, audienceScore
+	
+};
+
+var read = function() {
+	var db = Ti.Database.open('inTheatersDatabase');
+	var dbRows = db.execute('SELECT * FROM inTheatersInfo');
+	while (dbRows.isValidRow()) {
+	var dbPost = {
+		movieName : dbRows.fieldByName('movieName'),
+		critics_rating : dbRows.fieldByName('critics_rating')
+		
+		/*
+		criticsScore : dbRows.fieldByName('criticsScore'),
+		audienceRating : dbRows.fieldByName('audienceRating'),
+		audienceScore : dbRows.fieldByName('audienceScore'),
+		*/
+	};
+		dbRows.next();
+	};
+	dbRows.close();
+	db.close();
+	ui.buildUI(dbPost);
+};
+
+
+
+
+exports.save = save;
+exports.read = read;

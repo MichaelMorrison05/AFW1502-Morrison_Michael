@@ -1,0 +1,37 @@
+// Gets data from the UI.js file
+var Database = require('Database');
+//var ui = require('UI');
+
+// collects data from wunderground.com
+var inTheatersInfo = function(lat, lon){
+	var xhr = Ti.Network.createHTTPClient({
+		onload: function(){
+			var json = JSON.parse(this.responseText);
+			var appData = {
+				icon: json.current_observation.icon_url,
+				city: json.current_observation.display_location.city,
+				state: json.location.state,
+		
+			};
+			//ui.buildUI(appData);
+			Database.save(appData);
+			},
+			
+			// On an error a alert will appear
+			onerror: function(){
+				alert('Error');
+			}
+	
+	});
+	
+	// Stops attemps after 5sec
+	xhr.timeout = 5000;
+	// wunderground API url for geolookup, conditions, forcast, webcams, and astronomy.
+	// My lat and lon has been included so the right data is pulled
+	var url = 'http://api.wunderground.com/api/d8d6d376722c1591/geolookup/conditions/forcast/webcams/astronomy/forecast10day/q/' +lat+ ',' +lon+ '.json';
+	xhr.open('GET', url);
+	xhr.send();
+};
+
+// Exports weatherAPI data so that it can be used throughout the code
+exports.inTheaters = inTheatersInfo;

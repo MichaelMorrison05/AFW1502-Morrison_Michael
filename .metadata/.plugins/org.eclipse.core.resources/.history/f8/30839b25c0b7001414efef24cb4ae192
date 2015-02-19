@@ -1,0 +1,48 @@
+var Database = require('Database');
+
+// collects data
+var inTheatersInfo = function(){
+	var xhr = Ti.Network.createHTTPClient({
+		onload: function(){
+			var json = JSON.parse(this.responseText);
+			var posts = json.movies;
+			var postArray = [];
+			for (i=0, j=posts.length; i<j; i++) {
+				var appData = {
+				
+				movieName: posts[i].title,
+				criticsRating: posts[i].ratings.critics_rating,
+				criticsScore: posts[i].ratings.critics_score,
+				audienceRating: posts[i].ratings.audience_rating,
+				audienceScore: posts[i].ratings.audience_score,
+				poster: posts[i].posters.detailed,
+				year: posts[i].year,
+				mpaa_rating: posts[i].mpaa_rating,
+				runtime: posts[i].runtime,
+				synopsis: posts[i].synopsis,
+				
+				// criticsRating, criticsScore, audienceRating, audienceScore
+				
+			};
+				postArray.push(appData);
+			}
+			//ui.buildUI(appData);
+			Database.save(appData);
+			Database.saveToCloud(appData);
+			},
+			
+			// On an error a alert will appear
+			onerror: function(){
+				alert('Error');
+			}
+	
+	});
+	
+	// Stops attemps after 5sec
+	xhr.timeout = 5000;
+	var url = 'http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=kr85dzry7wrc5dnhafu2xqdh';
+	xhr.open('GET', url);
+	xhr.send();
+};
+
+exports.inTheaters = inTheatersInfo;

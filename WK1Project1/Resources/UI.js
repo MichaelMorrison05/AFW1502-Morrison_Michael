@@ -83,14 +83,15 @@ var webcam = Ti.UI.createImageView({
 	top: 10,
 	height: 240,
 	width: 352,
-	color: '#fff',
+	backgroundColor: '#fff',
 });
 
 var dayView = Ti.UI.createView({
 	width: Titanium.UI.SIZE, 
 	height: Titanium.UI.SIZE,
 	top: 10,
-	layout: 'Horizontal'
+	layout: 'Horizontal',
+	color: '#fff',
 });
 
 var day1 = Ti.UI.createLabel({
@@ -196,6 +197,7 @@ var lastUpdate = Ti.UI.createLabel({
 	top: 1,
 });
 
+/*
 var refreshButton = Titanium.UI.createButton({
 	title: 'Refresh',
 	color: '#fff',
@@ -208,7 +210,7 @@ var refreshButton = Titanium.UI.createButton({
 	width: 75,
 	height: 30
 });
-
+*/
 
 
 // Builds UI with Remote Data
@@ -238,9 +240,9 @@ exports.buildUI = function(obj){
 	day2.text = obj.day2;
 	day3.text = obj.day3;
 	
-	dayIcon1.image = obj.day1Icon;
-	dayIcon2.image = obj.day2Icon;
-	dayIcon3.image = obj.day3Icon;
+	dayIcon1.image = obj.dayIcon1;
+	dayIcon2.image = obj.dayIcon2;
+	dayIcon3.image = obj.dayIcon3;
 	
 	day1High.text = obj.day1High;
 	day2High.text = obj.day2High;
@@ -302,17 +304,7 @@ dayLow.add(day3Low);
 
 // Adds my main view to the main window
 mainWindow.add(mainView);
-mainWindow.add(refreshButton);
-
-refreshButton.addEventListener('click',function(e)
-{
-   if (Ti.Network.online){
-	alert('Online :)');
-
-} else {
-	alert('Offline :(');
-};
-});
+//mainWindow.add(refreshButton);
 
 // Opens my main window
 mainWindow.open();
