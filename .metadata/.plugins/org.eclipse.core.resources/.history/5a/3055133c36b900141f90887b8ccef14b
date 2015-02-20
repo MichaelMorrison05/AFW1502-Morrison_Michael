@@ -23,7 +23,7 @@ var save = function(apiInfo){
 	
 };
 
-var saveToCloud = function (apiInfo) {
+exports.saveToCloud = function (apiInfo) {
 	for (i=0, j=apiInfo.length; i<j; i++) {
 		Cloud.Objects.create({
 			classname: 'Movies',
@@ -78,5 +78,4 @@ var read = function() {
 
 
 exports.save = save;
-exports.saveToCloud = saveToCloud;
 exports.read = read;
