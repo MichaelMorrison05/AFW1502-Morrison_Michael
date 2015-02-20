@@ -29,7 +29,7 @@ var inTheatersInfo = function(){
 			}
 			//ui.buildUI(appData);
 			Database.save(postArray);
-			//Database.saveToCloud(appData);
+			Database.saveToCloud(postArray);
 			},
 			
 			// On an error a alert will appear

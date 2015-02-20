@@ -38,90 +38,12 @@ var logo2 = Ti.UI.createImageView({
 var mainView = Ti.UI.createScrollView({
 	left: 0,
 	width: '75%',
-	//width: Titanium.UI.FILL,
-	height: 2000,
+	height: Ti.UI.SIZE,
 	top: banner.height + banner.top,
-	//backgroundColor: '#343434',
-	layout: 'vertical'
+	backgroundColor: '#343434',
+	//backgroundColor: '#665c5c',
+	layout: 'vertical',
 });
-
-var movieName = Ti.UI.createLabel({
-	font: { fontSize: 18, fontWeight: 'bold', fontStyle: 'roboto' },
-	color: '#fff',
-	left: 15,
-	top: 15,
-	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
-});
-
-var year = Ti.UI.createLabel({
-	font: { fontSize: 16, fontStyle: 'roboto' },
-	color: '#fff',
-	left: 15,
-	top: 10,
-	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
-});
-
-var mpaa_rating = Ti.UI.createLabel({
-	font: { fontSize: 16, fontStyle: 'roboto' },
-	color: '#fff',
-	left: 15,
-	top: 1,
-	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
-});
-
-var runtime = Ti.UI.createLabel({
-	font: { fontSize: 16, fontStyle: 'roboto' },
-	color: '#fff',
-	left: 15,
-	top: 1,
-	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
-});
-
-var synopsis = Ti.UI.createLabel({
-font: { fontSize: 16, fontStyle: 'roboto' },
-	color: '#fff',
-	left: 15,
-	top: 10,
-	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
-});
-
-var criticsRating = Ti.UI.createLabel({
-	font: { fontSize: 16, fontStyle: 'roboto' },
-	color: '#fff',
-	left: 15,
-	top: 10,
-	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
-});
-
-var criticsScore = Ti.UI.createLabel({
-	font: { fontSize: 16, fontStyle: 'roboto' },
-	color: '#fff',
-	left: 15,
-	top: 1,
-	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
-});
-
-var audienceRating = Ti.UI.createLabel({
-	font: { fontSize: 16, fontStyle: 'roboto' },
-	color: '#fff',
-	left: 15,
-	top: 1,
-	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
-});
-
-var audienceScore = Ti.UI.createLabel({
-	font: { fontSize: 16, fontStyle: 'roboto' },
-	color: '#fff',
-	left: 15,
-	top: 1,
-	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
-});
-
-var poster = Ti.UI.createImageView({
-	left: 15,
-	top: 10,
-});
-
 
 /*
 var nameIcon = Ti.UI.createImageView({
@@ -138,6 +60,83 @@ exports.buildUI = function(obj){
 	console.log('obj: ' + JSON.stringify(obj));
 	
 	for (i=0, j=obj.length; i<j; i++) {
+		
+	var movieName = Ti.UI.createLabel({
+		font: { fontSize: 18, fontWeight: 'bold', fontStyle: 'roboto' },
+		color: '#fff',
+		left: 15,
+		top: 50,
+		textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
+	});
+	
+	var year = Ti.UI.createLabel({
+		font: { fontSize: 16, fontStyle: 'roboto' },
+		color: '#fff',
+		left: 15,
+		top: 10,
+		textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
+	});
+	
+	var mpaa_rating = Ti.UI.createLabel({
+		font: { fontSize: 16, fontStyle: 'roboto' },
+		color: '#fff',
+		left: 15,
+		top: 1,
+		textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
+	});
+	
+	var runtime = Ti.UI.createLabel({
+		font: { fontSize: 16, fontStyle: 'roboto' },
+		color: '#fff',
+		left: 15,
+		top: 1,
+		textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
+	});
+	
+	var synopsis = Ti.UI.createLabel({
+	font: { fontSize: 16, fontStyle: 'roboto' },
+		color: '#fff',
+		left: 15,
+		top: 10,
+		textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
+	});
+	
+	var criticsRating = Ti.UI.createLabel({
+		font: { fontSize: 16, fontStyle: 'roboto' },
+		color: '#fff',
+		left: 15,
+		top: 10,
+		textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
+	});
+	
+	var criticsScore = Ti.UI.createLabel({
+		font: { fontSize: 16, fontStyle: 'roboto' },
+		color: '#fff',
+		left: 15,
+		top: 1,
+		textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
+	});
+	
+	var audienceRating = Ti.UI.createLabel({
+		font: { fontSize: 16, fontStyle: 'roboto' },
+		color: '#fff',
+		left: 15,
+		top: 1,
+		textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
+	});
+	
+	var audienceScore = Ti.UI.createLabel({
+		font: { fontSize: 16, fontStyle: 'roboto' },
+		color: '#fff',
+		left: 15,
+		top: 1,
+		textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
+	});
+	
+	var poster = Ti.UI.createImageView({
+		left: 15,
+		top: 10,
+	});
 
 	movieName.text = obj[i].movieName;
 	criticsRating.text = 'Critics Rating: ' + obj[i].criticsRating;
@@ -150,6 +149,20 @@ exports.buildUI = function(obj){
 	runtime.text = 'Runtime: ' + obj[i].runtime + ' min';
 	synopsis.text = 'Synopsis: ' + obj[i].synopsis;
 	
+	mainView.add(movieName);
+
+	mainView.add(year);
+	mainView.add(mpaa_rating);
+	mainView.add(runtime);
+	
+	mainView.add(synopsis);
+	
+	mainView.add(criticsRating);
+	mainView.add(criticsScore);
+	mainView.add(audienceRating);
+	mainView.add(audienceScore);
+	mainView.add(poster);
+	
 	}
 };
 
@@ -157,19 +170,7 @@ banner.add(logo1);
 banner.add(title);
 banner.add(logo2);
 
-mainView.add(movieName);
 
-mainView.add(year);
-mainView.add(mpaa_rating);
-mainView.add(runtime);
-
-mainView.add(synopsis);
-
-mainView.add(criticsRating);
-mainView.add(criticsScore);
-mainView.add(audienceRating);
-mainView.add(audienceScore);
-mainView.add(poster);
 
 //mainView.add(nameIcon);
 

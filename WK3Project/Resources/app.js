@@ -1,4 +1,5 @@
 var api = require('api');
+var Database = require('Database');
 
 // load the Cloud Module
 var Cloud = require('ti.cloud');
