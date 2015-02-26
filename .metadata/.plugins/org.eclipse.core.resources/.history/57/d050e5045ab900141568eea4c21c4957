@@ -1,0 +1,6 @@
+
+
+
+Ti.Gesture.addEventListener('Shake', function(e){
+	alert("Shake Shake Shake");
+});

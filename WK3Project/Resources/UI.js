@@ -12,6 +12,8 @@ var banner = Ti.UI.createView({
 	backgroundColor: '#3a9425'
 });
 
+if (Ti.Platform.osname === 'android'){
+
 var title = Ti.UI.createLabel({
 	text: 'In Theaters Now',
 	font: { fontSize: 36, fontWeight: 'bold', fontStyle: 'roboto' },
@@ -23,16 +25,40 @@ var logo1 = Ti.UI.createImageView({
 	width: 160,
 	height: 120,
 	image: 'http://www.userlogos.org/files/logos/jumpordie/rottentomatoes_03.png',
-	left: 70,
-	right: 20
+	left: 20
 });
 
 var logo2 = Ti.UI.createImageView({
 	width: 160,
 	height: 120,
 	image: 'http://www.userlogos.org/files/logos/jumpordie/rottentomatoes_03.png',
-	left: 20
+	right: 20
 });
+
+} else {
+	
+	var title = Ti.UI.createLabel({
+	text: 'In Theaters Now',
+	font: { fontSize: 36, fontWeight: 'bold', fontStyle: 'roboto' },
+	color: '#fff',
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+});
+
+var logo1 = Ti.UI.createImageView({
+	width: 160,
+	height: 120,
+	image: 'http://www.userlogos.org/files/logos/jumpordie/rottentomatoes_03.png',
+	left: 75
+});
+
+var logo2 = Ti.UI.createImageView({
+	width: 160,
+	height: 120,
+	image: 'http://www.userlogos.org/files/logos/jumpordie/rottentomatoes_03.png',
+	right: 20
+});
+	
+}
 
 // Main View Info
 var mainView = Ti.UI.createScrollView({
@@ -45,13 +71,31 @@ var mainView = Ti.UI.createScrollView({
 	layout: 'vertical',
 });
 
+var splat = Ti.UI.createImageView({
+	top: 200,
+	height: 500,
+	width: 500,
+	image: 'http://d3biamo577v4eu.cloudfront.net/static/images/trademark/rotten.png'
+});
+	
+Ti.Gesture.addEventListener('shake',function(e) {
+	
+	mainWindow.add(splat);
+		
+	setTimeout(function(){
+	    
+	    mainWindow.remove(splat);
+	    
+	}, 5000);
+	
+});
+
 /*
 var nameIcon = Ti.UI.createImageView({
 	image: 'http://img1.wikia.nocookie.net/__cb20111027001559/logopedia/images/1/1a/Rotten_tomatoes_logo.png',
 	bottom: 20
 });
 */
-
 
 // Builds UI with Remote Data
 exports.buildUI = function(obj){
@@ -61,11 +105,12 @@ exports.buildUI = function(obj){
 	
 	for (i=0, j=obj.length; i<j; i++) {
 		
+		
 	var movieName = Ti.UI.createLabel({
-		font: { fontSize: 18, fontWeight: 'bold', fontStyle: 'roboto' },
+		font: { fontSize: 22, fontWeight: 'bold', fontStyle: 'roboto' },
 		color: '#fff',
 		left: 15,
-		top: 50,
+		top: 10,
 		textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
 	});
 	
@@ -97,7 +142,7 @@ exports.buildUI = function(obj){
 	font: { fontSize: 16, fontStyle: 'roboto' },
 		color: '#fff',
 		left: 15,
-		top: 10,
+		top: 20,
 		textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
 	});
 	
@@ -105,7 +150,7 @@ exports.buildUI = function(obj){
 		font: { fontSize: 16, fontStyle: 'roboto' },
 		color: '#fff',
 		left: 15,
-		top: 10,
+		top: 20,
 		textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
 	});
 	
@@ -135,19 +180,37 @@ exports.buildUI = function(obj){
 	
 	var poster = Ti.UI.createImageView({
 		left: 15,
-		top: 10,
+		top: 75,
+		height: 164,
+		width: 118
+	});
+	
+	var button = Titanium.UI.createButton({
+	   title: 'Like',
+	   font: { fontWeight: 'bold', fontSize: 16, fontStyle: 'roboto' },
+	   color: '#3d589d',
+	   borderRadius: 5,
+	   borderWidth: 2,
+	   borderColor: '#aebad0',
+	   backgroundColor: '#edf0f7',
+	   left: 15,
+	   top: 20,
+	   width: 55,
+	   height: 35
 	});
 
 	movieName.text = obj[i].movieName;
-	criticsRating.text = 'Critics Rating: ' + obj[i].criticsRating;
-	criticsScore.text = 'Critics Score: ' + obj[i].criticsScore;
-	audienceRating.text = 'Audience Rating: ' + obj[i].audienceRating;
-	audienceScore.text = 'Audience Score: ' + obj[i].audienceScore;
+	criticsRating.text = 'CRITICS RATING: ' + obj[i].criticsRating;
+	criticsScore.text = 'CRITICS SCORE: ' + obj[i].criticsScore;
+	audienceRating.text = 'AUDIENCE RATING: ' + obj[i].audienceRating;
+	audienceScore.text = 'AUDIENCE SCORE: ' + obj[i].audienceScore;
 	poster.image = obj[i].poster;
-	year.text = 'Year: ' + obj[i].year;
-	mpaa_rating.text = 'MPAA Rating: ' + obj[i].mpaa_rating;
-	runtime.text = 'Runtime: ' + obj[i].runtime + ' min';
-	synopsis.text = 'Synopsis: ' + obj[i].synopsis;
+	year.text = 'YEAR: ' + obj[i].year;
+	mpaa_rating.text = 'MPAA RATING: ' + obj[i].mpaa_rating;
+	runtime.text = 'RUNTIME: ' + obj[i].runtime + ' min';
+	synopsis.text = 'SYNOPSIS: ' + obj[i].synopsis;
+	
+	mainView.add(poster);
 	
 	mainView.add(movieName);
 
@@ -161,16 +224,48 @@ exports.buildUI = function(obj){
 	mainView.add(criticsScore);
 	mainView.add(audienceRating);
 	mainView.add(audienceScore);
-	mainView.add(poster);
+	
+	mainView.add(button);
+	
+	
+	console.log(criticsRating.text);
+	
+		button.addEventListener('click',function(evt)
+	{
+	   Titanium.API.info("You clicked the button");
+	   
+	   Cloud.Likes.remove({
+		    user_id: '54e3849dde9cf309835b7778'
+		}, function (e) {
+		    if (e.success) {
+		        // alert('Removed');
+		    } else {
+		        //alert('Error:\n' +
+		           // ((e.error && e.message) || JSON.stringify(e)));
+		    }
+		});
+	   
+	   	Cloud.Likes.create({
+		    user_id: '54e3849dde9cf309835b7778'
+		}, function (e) {
+		    if (e.success) {
+		        alert('You Liked This Movie!');
+		    } else {
+		        //alert('Error:\n' +
+		            //((e.error && e.message) || JSON.stringify(e)));
+		    }
+		});
+	});
 	
 	}
+	
 };
+
+
 
 banner.add(logo1);
 banner.add(title);
 banner.add(logo2);
-
-
 
 //mainView.add(nameIcon);
 

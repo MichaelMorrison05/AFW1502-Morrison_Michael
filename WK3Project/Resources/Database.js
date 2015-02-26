@@ -23,32 +23,6 @@ var save = function(apiInfo){
 	
 };
 
-var saveToCloud = function (apiInfo) {
-	for (i=0, j=apiInfo.length; i<j; i++) {
-		Cloud.Objects.create({
-			classname: 'Movies',
-			fields: {
-        		movieName: apiInfo[i].movieName,
-				criticsRating: apiInfo[i].criticsRating,
-				criticsScore: apiInfo[i].criticsScoree,
-				audienceRating: apiInfo[i].audienceRating,
-				audienceScore: apiInfo[i].audienceScore,
-				poster: apiInfo[i].poster,
-				year: apiInfo[i].year,
-				mpaa_rating: apiInfo[i].mpaa_rating,
-				runtime: apiInfo[i].runtime,
-				synopsis: apiInfo[i].synopsis,
-		    }
-		}, function (e) {
-		    if (e.success) {
-		        alert('Saved To Cloud!');
-		    } else {
-		        alert('Did not save to cloud!');
-		    }
-		});
-	}
-};
-
 var read = function() {
 	var db = Ti.Database.open('inTheatersDatabase');
 	var dbRows = db.execute('SELECT * FROM inTheatersInfo');
@@ -74,8 +48,31 @@ var read = function() {
 	ui.buildUI(dbData);
 };
 
-
-
+var saveToCloud = function (apiInfo) {
+	for (i=0, j=apiInfo.length; i<j; i++) {
+		Cloud.Objects.create({
+			classname: 'Movies',
+			fields: {
+        		movieName: apiInfo[i].movieName,
+				criticsRating: apiInfo[i].criticsRating,
+				criticsScore: apiInfo[i].criticsScoree,
+				audienceRating: apiInfo[i].audienceRating,
+				audienceScore: apiInfo[i].audienceScore,
+				poster: apiInfo[i].poster,
+				year: apiInfo[i].year,
+				mpaa_rating: apiInfo[i].mpaa_rating,
+				runtime: apiInfo[i].runtime,
+				synopsis: apiInfo[i].synopsis,
+		    }
+		}, function (e) {
+		    if (e.success) {
+		        console.log('Saved To Cloud!');
+		    } else {
+		        console.log('Did not save to cloud!');
+		    }
+		});
+	}
+};
 
 exports.save = save;
 exports.saveToCloud = saveToCloud;

@@ -1,0 +1,23 @@
+var app = require('app');
+
+var splat = Ti.UI.createImageView({
+	top: 100,
+	height: 500,
+	width: 500,
+	image: 'http://d3biamo577v4eu.cloudfront.net/static/images/trademark/rotten.png'
+});
+	
+Ti.Gesture.addEventListener('shake',function(e) {
+	
+	mainWindow.add(splat);
+		
+	setTimeout(function(){
+		
+	    mainWindow.remove(splat);
+	    
+	}, 5000);
+	
+});
+
+
+

@@ -1,2 +1,2 @@
-DEFAULT_ANDROID_EMULATOR=Nexus_7
+DEFAULT_ANDROID_EMULATOR=AVD_for_Nexus_10
 eclipse.preferences.version=1

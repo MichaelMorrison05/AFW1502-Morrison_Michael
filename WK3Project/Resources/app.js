@@ -8,12 +8,13 @@ var Cloud = require('ti.cloud');
 Cloud.debug = true;
 var loginUser = function(){
 	Cloud.Users.login({
-		login: 'com.WK3Project',
+		login: 'wk3project',
 		password: 'Darksith1'
 	}, function(e){
 		// use .info method to view login info in the Console, if successful
 		console.log(e);
 		if (e.success){
+			api.inTheaters();
 			var user = e.users[0];
 			Ti.API.info('Success!\n' + 
 				'ACS User ID: ' + user.id + '\n' + 
@@ -26,7 +27,7 @@ var loginUser = function(){
 }; // loginUser ends
 
 if (Ti.Network.online) {
-	api.inTheaters();
+	//api.inTheaters();
 	loginUser();
 	
 	// now your app is ready to access ACS network and data services
@@ -35,3 +36,18 @@ if (Ti.Network.online) {
 	var read = require('Database');
 	read.read();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

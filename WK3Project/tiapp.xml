@@ -15,9 +15,11 @@
     <analytics>true</analytics>
     <guid>99cb6383-f312-4bed-8278-d9c734d25b38</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
-    <ios>
+  <ios>
         <plist>
             <dict>
+            	<key>NSLocationAlwaysUsageDescription</key>
+                <string>This app would like to use you Geolocation.</string>
                 <key>UISupportedInterfaceOrientations~iphone</key>
                 <array>
                     <string>UIInterfaceOrientationPortrait</string>
