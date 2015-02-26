@@ -12,6 +12,40 @@ var banner = Ti.UI.createView({
 	backgroundColor: '#3a9425'
 });
 
+var customPosterLable = Ti.UI.createLabel({
+	top: banner.height + banner.top + 10,
+	color: '#fff',
+	width: 165,
+    textAlign: 'center',
+	right: 23,
+	text: 'Make your own custom movie poster!',
+   	font: { fontWeight: 'bold', fontSize: 16, fontStyle: 'roboto' },
+});
+
+var customPoster = Ti.UI.createView({
+	height: 170,
+	width: 124,
+	right: 40,
+	borderRadius: 5,
+   borderWidth: 2,
+   borderColor: '#f5d64e',
+	top: banner.height + banner.top + 55,
+});
+
+var takePhoto = Titanium.UI.createButton({
+   title: 'Photo',
+   font: { fontWeight: 'bold', fontSize: 16, fontStyle: 'roboto' },
+   color: '#3d589d',
+   borderRadius: 5,
+   borderWidth: 2,
+   borderColor: '#aebad0',
+   backgroundColor: '#edf0f7',
+   right: 72,
+   top: customPoster.height + customPoster.top + 10,
+   width: 55,
+   height: 35,
+});
+
 if (Ti.Platform.osname === 'android'){
 
 var title = Ti.UI.createLabel({
@@ -230,8 +264,8 @@ exports.buildUI = function(obj){
 	
 	console.log(criticsRating.text);
 	
-		button.addEventListener('click',function(evt)
-	{
+		button.addEventListener('click',function(evt) {
+			
 	   Titanium.API.info("You clicked the button");
 	   
 	   Cloud.Likes.remove({
@@ -261,7 +295,29 @@ exports.buildUI = function(obj){
 	
 };
 
+takePhoto.addEventListener('click',function(evt) {
 
+Titanium.Media.showCamera({
+	success:function(evt) {
+ if(evt.mediaType == Ti.Media.MEDIA_TYPE_PHOTO) {
+			var imageView = Ti.UI.createImageView({
+				height: 164,
+				width: 118,
+				right: 43,
+   				top: banner.height + banner.top + 58,
+				image:evt.media
+			});
+			mainWindow.add(imageView);
+		} 
+	},
+	cancel:function() {
+	},
+	saveToPhotoGallery:true,
+	allowEditing:true,
+	mediaTypes:[Ti.Media.MEDIA_TYPE_VIDEO,Ti.Media.MEDIA_TYPE_PHOTO]
+	});
+
+});
 
 banner.add(logo1);
 banner.add(title);
@@ -270,6 +326,10 @@ banner.add(logo2);
 //mainView.add(nameIcon);
 
 mainWindow.add(banner);
+
+mainWindow.add(customPosterLable); 
+mainWindow.add(customPoster); 
+mainWindow.add(takePhoto);
 mainWindow.add(mainView);
 //mainWindow.add(nameIcon);
 
