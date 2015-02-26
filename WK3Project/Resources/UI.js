@@ -308,6 +308,7 @@ Titanium.Media.showCamera({
 				image:evt.media
 			});
 			mainWindow.add(imageView);
+			// Test
 		} 
 	},
 	cancel:function() {
